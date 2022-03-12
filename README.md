@@ -2,6 +2,13 @@
 
 ## 안드로이드 스튜디오 최신버전 설치
 
+## 안드로이드 SDK Components Setup
+
+1. Android SDK
+2. Android SDK Platform -> API30: Android 11 (R)
+3. Performance
+4. Android Virtual Device
+
 ## 안드로이드 환경변수(adb) 설정
 
 - ADB(Android Debug Bridge)란?
@@ -16,9 +23,20 @@ C:\Users\본인계정명\AppData\Local\Android\sdk\platform-tools 이다.)
 
   - cmd창에서 adb version을 쳐서 확인가능하면 끝~
 
-## 안드로이드 SDK Components Setup
+## android 기기를 통해 연결 시
 
-1. Android SDK
-2. Android SDK Platform -> API30: Android 11 (R)
-3. Performance
-4. Android Virtual Device
+1. 핸드폰에서 설정탭 > 개발자 옵션 으로 들어가서 USB 디버깅을 활성화
+
+```
+C:\Users\HOME>adb devices
+List of devices attached
+R3CM600VWLH unauthorized
+```
+
+2. 기기의 포트를 8081로 변경해준다
+
+```
+C:\Users\HOME>adb reverse tcp:8081 tcp:8081
+```
+
+3. 해당 프로젝트 폴더에서 reactive-native run-android 명령어 실행
