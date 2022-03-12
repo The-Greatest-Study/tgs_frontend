@@ -11,6 +11,8 @@
 
 ## 안드로이드 환경변수(adb) 설정
 
+- [Android_HOME 환경변수 설정](https://rhyshan.com/612)
+
 - ADB(Android Debug Bridge)란?
   - 간단하게 말해서 PC에서 안드로이드 단말로 명령을 내릴 수 있게 도와주는 도구이다.
 
