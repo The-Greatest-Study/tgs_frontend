@@ -4,6 +4,7 @@ import {
   ImageBackground,
   StyleSheet,
   useWindowDimensions,
+  ScrollView,
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
@@ -12,6 +13,7 @@ import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 
 const SignInScreen = () => {
+  const [userid, setUserid] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -22,8 +24,12 @@ const SignInScreen = () => {
   const {height} = useWindowDimensions();
 
   const onSignInPressed = () => {
-      console.warn("Sign in");
-  }
+     console.warn("Sign in");
+  };
+
+  const onSignUpPressed = () => {
+    console.warn("Sign up");
+  };
 
   const fetchUsers = async () => {
     try {
@@ -61,23 +67,25 @@ const SignInScreen = () => {
   }, []);
 
   return (
-    <View style={styles.root}>
-      <CustomInput
-        value={username}
-        setValue={setUsername}
-        placeholder="아이디"
-      />
-      <CustomInput
-        value={password}
-        setValue={setPassword}
-        placeholder="비밀번호"
-        secureTextEntry={true}
-      />
-      
-      <CustomButton text="로그인" onPress={fetchUsers}/>
-    </View>
+      <ScrollView>
+        <View style={styles.root}>
+        <CustomInput
+            value={username}
+            setValue={setUsername}
+            placeholder="아이디"
+        />
+        <CustomInput
+            value={password}
+            setValue={setPassword}
+            placeholder="비밀번호"
+            secureTextEntry={true}
+        />
+        
+        <CustomButton text="로그인" onPress={onSignInPressed} />
 
-    //<button onClick={fetchUsers}><Text>login</Text></button>
+        <CustomButton text="회원가입" onPress={onSignUpPressed} type="PRIMARY"/>
+        </View>
+    </ScrollView>
   );
 };
 
