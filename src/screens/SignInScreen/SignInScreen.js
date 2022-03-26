@@ -34,7 +34,7 @@ const SignInScreen = () => {
       // loading 상태를 true 로 바꿉니다.
       //console.warn("Sign In End");
       setLoading(true);
-      /*
+      
       const response = await axios.post(
         'https://the-greatest-study.herokuapp.com/user/create',
         {
@@ -45,7 +45,7 @@ const SignInScreen = () => {
             gender:'M'
         }
       );
-      */
+      
 
       setUsers(response.data); // 데이터는 response.data 안에 들어있습니다.
       //console.warn(users);
