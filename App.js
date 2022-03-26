@@ -6,8 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
-import type {Node} from 'react';
+import React, {Component} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -16,8 +15,8 @@ import {
   Text,
   useColorScheme,
   View,
+  ImageBackground,
 } from 'react-native';
-
 import {
   Colors,
   DebugInstructions,
@@ -25,28 +24,49 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-
 import SignInScreen from './src/screens/SignInScreen';
+import TestLogo from './assets/images/test.jpg';
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+export default class App extends Component {
+  render() {
+    return (
+      <ImageBackground
+        source={TestLogo}
+        resizeMode="cover"
+        style={styles.bgImg}>
+        <Text style={styles.redTitle}>오늘, 뭐먹지?</Text>
+        <SafeAreaView style={styles.safeAreaStyle}>
+          <SignInScreen />
+        </SafeAreaView>
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <SignInScreen/>
-    </SafeAreaView>
-  );
-};
+        <Text style={styles.blueNotice}></Text>
+      </ImageBackground>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: '#F9FBFC',
+    backgroundColor: '#48CAE1',
+  },
+  safeAreaStyle: {
+    backgroundColor: '#B2CCFF',
+    margin: 50,
+    borderRadius: 20,
+  },
+  redTitle: {
+    alignSelf: 'center',
+    backgroundColor: '#B2CCFF',
+    color: '#F15F5F',
+    fontSize: 40,
+    fontFamily: 'Maplestory-Bold',
+    padding: 20,
+    marginBottom: 100,
+    borderRadius: 20,
+  },
+  bgImg: {
+    flex: 1,
+    justifyContent: 'center',
   },
 });
-
-export default App;
