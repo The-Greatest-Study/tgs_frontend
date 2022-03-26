@@ -12,6 +12,9 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		EF65970FDDE4472E8877F64E /* Maplestory-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD0BD8BC32854DCC8FEAAB40 /* Maplestory-Bold.ttf */; };
+		BF00B451051E4D4586EE8DED /* Maplestory-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F34E4BA59DF14C5C8E39D2BB /* Maplestory-Light.ttf */; };
+		C3E1FBE9852F4F9FBE74D84C /* BMEuljirooraeorae.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5316D30DE1304835BE1B97FB /* BMEuljirooraeorae.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,9 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = tgs_frontend/main.m; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = tgs_frontend/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		AD0BD8BC32854DCC8FEAAB40 /* Maplestory-Bold.ttf */ = {isa = PBXFileReference; name = "Maplestory-Bold.ttf"; path = "../assets/fonts/Maplestory-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F34E4BA59DF14C5C8E39D2BB /* Maplestory-Light.ttf */ = {isa = PBXFileReference; name = "Maplestory-Light.ttf"; path = "../assets/fonts/Maplestory-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5316D30DE1304835BE1B97FB /* BMEuljirooraeorae.ttf */ = {isa = PBXFileReference; name = "BMEuljirooraeorae.ttf"; path = "../assets/fonts/BMEuljirooraeorae.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,7 @@
 				00E356EF1AD99517003FC87E /* tgs_frontendTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				BF1D07B9A9134C348D3FCB2D /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -123,6 +130,19 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		BF1D07B9A9134C348D3FCB2D /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				BBED41874E3A43C3A0AC25D8 /* Maplestory Bold.ttf */,
+				CE146A27C22742E98CC292D4 /* Maplestory Light.ttf */,
+				AD0BD8BC32854DCC8FEAAB40 /* Maplestory-Bold.ttf */,
+				F34E4BA59DF14C5C8E39D2BB /* Maplestory-Light.ttf */,
+				5316D30DE1304835BE1B97FB /* BMEuljirooraeorae.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -214,6 +234,11 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				34159626249849DDACD1D5C6 /* Maplestory Bold.ttf in Resources */,
+				699D1B23592141CF956397B4 /* Maplestory Light.ttf in Resources */,
+				EF65970FDDE4472E8877F64E /* Maplestory-Bold.ttf in Resources */,
+				BF00B451051E4D4586EE8DED /* Maplestory-Light.ttf in Resources */,
+				C3E1FBE9852F4F9FBE74D84C /* BMEuljirooraeorae.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
