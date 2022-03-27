@@ -42,3 +42,12 @@ C:\Users\HOME>adb reverse tcp:8081 tcp:8081
 ```
 
 3. 해당 프로젝트 폴더에서 reactive-native run-android 명령어 실행
+
+## Library
+1. npm install axios
+
+2. npm install @react-navigation/native
+
+3. npm install react-native-screens react-native-safe-area-context
+
+4. npm install @react-navigation/native-stack

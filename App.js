@@ -24,23 +24,18 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import SignInScreen from './src/screens/SignInScreen';
+
 import TestLogo from './assets/images/test.jpg';
+import Navigation from './src/navigation';
+import SignInScreen from './src/screens/SignInScreen';
 
 export default class App extends Component {
   render() {
     return (
-      <ImageBackground
-        source={TestLogo}
-        resizeMode="cover"
-        style={styles.bgImg}>
-        <Text style={styles.redTitle}>오늘, 뭐먹지?</Text>
-        <SafeAreaView style={styles.safeAreaStyle}>
-          <SignInScreen />
-        </SafeAreaView>
-
-        <Text style={styles.blueNotice}></Text>
-      </ImageBackground>
+      
+      <SafeAreaView style={styles.root}>
+        <Navigation />
+      </SafeAreaView>
     );
   }
 }
