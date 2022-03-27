@@ -11,6 +11,8 @@ import axios from 'axios';
 
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
+import { useNavigation } from '@react-navigation/native';
+import TestLogo from '../../../assets/images/test.jpg';
 
 const SignInScreen = () => {
   const [userid, setUserid] = useState('');
@@ -23,8 +25,12 @@ const SignInScreen = () => {
 
   const {height} = useWindowDimensions();
 
+  const navigation = useNavigation();
+
   const onSignInPressed = () => {
      console.warn("Sign in");
+
+     navigation.navigate('Home');
   };
 
   const onSignUpPressed = () => {
@@ -67,33 +73,71 @@ const SignInScreen = () => {
   }, []);
 
   return (
-      <ScrollView>
-        <View style={styles.root}>
-        <CustomInput
-            value={username}
-            setValue={setUsername}
-            placeholder="아이디"
-        />
-        <CustomInput
-            value={password}
-            setValue={setPassword}
-            placeholder="비밀번호"
-            secureTextEntry={true}
-        />
-        
-        <CustomButton text="로그인" onPress={onSignInPressed} />
+    
+    <ImageBackground
+        source={TestLogo}
+        resizeMode="cover"
+        style={styles.bgImg}>
+        <View>
+          <Text style={styles.redTitle}>오늘, 뭐먹지?</Text>
+            <ScrollView>
+              <View style={styles.safeAreaStyle}>
+                <CustomInput
+                    value={username}
+                    setValue={setUsername}
+                    placeholder="아이디"
+                />
+                <CustomInput
+                    value={password}
+                    setValue={setPassword}
+                    placeholder="비밀번호"
+                    secureTextEntry={true}
+                />
+                
+                <CustomButton text="로그인" onPress={onSignInPressed} />
 
-        <CustomButton text="회원가입" onPress={onSignUpPressed} type="PRIMARY"/>
+                <CustomButton text="회원가입" onPress={onSignUpPressed} type="PRIMARY"/>
+              </View>
+              </ScrollView>
+          <Text style={styles.blueNotice}></Text>
         </View>
-    </ScrollView>
+      </ImageBackground>
+      
+    
   );
 };
 
 const styles = StyleSheet.create({
   root: {
+    flex: 1,
+    backgroundColor: '#48CAE1',
+  },
+  view: {
     alignItems: 'center',
     padding: 20,
     color: 'black',
+  },
+  safeAreaStyle: {
+    backgroundColor: '#B2CCFF',
+    margin: 50,
+    borderRadius: 20,
+    alignItems: 'center',
+    padding: 20,
+    color: 'black',
+  },
+  bgImg: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  redTitle: {
+    alignSelf: 'center',
+    backgroundColor: '#B2CCFF',
+    color: '#F15F5F',
+    fontSize: 40,
+    fontFamily: 'Maplestory-Bold',
+    padding: 20,
+    marginBottom: 100,
+    borderRadius: 20,
   },
 });
 
