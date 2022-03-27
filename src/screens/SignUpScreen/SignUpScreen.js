@@ -5,6 +5,7 @@ import {
   StyleSheet,
   useWindowDimensions,
   ScrollView,
+  Alert,
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
@@ -14,10 +15,12 @@ import CustomButton from '../../components/CustomButton';
 import {useNavigation} from '@react-navigation/native';
 import TestLogo from '../../../assets/images/test.jpg';
 
-const SignInScreen = () => {
+const SignUpScreen = () => {
   const [userid, setUserid] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [userBday, setUserbday] = useState('');
+  const [gender, setGender] = useState('');
 
   const [users, setUsers] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -27,12 +30,10 @@ const SignInScreen = () => {
 
   const navigation = useNavigation();
 
-  const onSignInPressed = () => {
-    navigation.navigate('Home');
-  };
-
   const onSignUpPressed = () => {
-    navigation.navigate('SignUp');
+    fetchUsers();
+    Alert.alert('회원가입이 완료되었습니다.');
+    navigation.navigate('SignIn');
   };
 
   const fetchUsers = async () => {
@@ -45,10 +46,14 @@ const SignInScreen = () => {
       //console.warn("Sign In End");
       setLoading(true);
 
-      const response = await axios.get(
-        'https://the-greatest-study.herokuapp.com/user/',
+      const response = await axios.post(
+        'https://the-greatest-study.herokuapp.com/user/create',
         {
-          userid: username,
+          userId: userid,
+          userNm: username,
+          pw: password,
+          userBday: userBday,
+          gender: gender,
         },
       );
 
@@ -56,7 +61,7 @@ const SignInScreen = () => {
       //console.warn(users);
     } catch (e) {
       setError(e);
-      console.warn(e);
+      //console.warn(e);
     }
     setLoading(false);
   };
@@ -68,13 +73,18 @@ const SignInScreen = () => {
   return (
     <ImageBackground source={TestLogo} resizeMode="cover" style={styles.bgImg}>
       <View>
-        <Text style={styles.redTitle}>오늘, 뭐먹지?</Text>
+        <Text style={styles.redTitle}>회원가입</Text>
         <ScrollView>
           <View style={styles.safeAreaStyle}>
             <CustomInput
+              value={userid}
+              setValue={setUserid}
+              placeholder="아이디"
+            />
+            <CustomInput
               value={username}
               setValue={setUsername}
-              placeholder="아이디"
+              placeholder="닉네임"
             />
             <CustomInput
               value={password}
@@ -82,11 +92,21 @@ const SignInScreen = () => {
               placeholder="비밀번호"
               secureTextEntry={true}
             />
+            <CustomInput
+              value={userBday}
+              setValue={setUserbday}
+              placeholder="생년월일"
+            />
+            <CustomInput
+              value={gender}
+              setValue={setGender}
+              placeholder="성별"
+            />
 
-            <CustomButton text="로그인" onPress={onSignInPressed} />
+            <Text></Text>
 
             <CustomButton
-              text="회원가입"
+              text="작성완료"
               onPress={onSignUpPressed}
               type="PRIMARY"
             />
@@ -127,9 +147,9 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontFamily: 'Maplestory-Bold',
     padding: 20,
-    marginBottom: 100,
+    marginBottom: 30,
     borderRadius: 20,
   },
 });
 
-export default SignInScreen;
+export default SignUpScreen;
